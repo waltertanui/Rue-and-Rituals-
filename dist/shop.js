@@ -74,17 +74,26 @@ function detail(product) {
     '</select></label><button class="primary full">Add to bag</button></form>');
 }
 
-function totals() {
+function totals(delivery = 'standard') {
   const subtotal = cart.reduce((sum, line) => sum + find(line.id).price * line.quantity, 0);
-  const shipping = subtotal > 0 && subtotal <= 10000 ? 900 : 0;
+  let shipping = subtotal > 0 && subtotal <= 10000 ? 900 : 0;
+  if (subtotal > 0 && delivery === 'express') shipping = 1500;
   return {subtotal, shipping, total: subtotal + shipping};
 }
 
-function summary() {
-  const {subtotal, shipping, total} = totals();
+function summary(delivery) {
+  const {subtotal, shipping, total} = totals(delivery);
   return '<div class="totals"><div><span>Subtotal</span><span>' + money(subtotal) +
     '</span></div><div><span>Shipping</span><span>' + (shipping ? money(shipping) : 'Free') +
     '</span></div><div><span>Total (CAD)</span><span>' + money(total) + '</span></div></div>';
+}
+
+function orderItems() {
+  return '<ul class="order-items">' + cart.map(line => {
+    const product = find(line.id);
+    return '<li><span>' + product.name + ' · ' + line.option + ' × ' + line.quantity +
+      '</span><span>' + money(product.price * line.quantity) + '</span></li>';
+  }).join('') + '</ul>';
 }
 
 function bag(focusAction, index) {
@@ -108,8 +117,13 @@ function checkout() {
     '<label>First name<input name="first" required autocomplete="off" maxlength="80"></label><label>Last name<input name="last" required autocomplete="off" maxlength="80"></label>' +
     '<label class="wide">Email<input type="email" name="email" required autocomplete="off" maxlength="254"></label>' +
     '<label class="wide">Street address<input name="address" required autocomplete="off" maxlength="150"></label>' +
-    '<label>City<input name="city" required autocomplete="off" maxlength="100"></label><label>Postal code<input name="postal" required autocomplete="off" maxlength="20"></label></div>' +
-    summary() + '<button class="primary full">Place demo order</button></form>');
+    '<label>City<input name="city" required autocomplete="off" maxlength="100"></label><label>Postal code<input name="postal" required autocomplete="off" maxlength="20"></label>' +
+    '<label>Province or territory<input name="province" required autocomplete="off" maxlength="100"></label><label>Country<input value="Canada" readonly></label>' +
+    '<label class="wide">Delivery<select name="delivery"><option value="standard">Standard delivery · ' + (totals().shipping ? money(totals().shipping) : 'Free') +
+    '</option><option value="express">Express delivery · ' + money(totals('express').shipping) + '</option></select></label></div>' +
+    '<h3 class="checkout-heading">Payment</h3><p class="note">Demo payment approved at submission. No card details needed.</p>' +
+    '<h3 class="checkout-heading">Order summary</h3>' + orderItems() +
+    '<div id="checkout-totals" aria-live="polite">' + summary() + '</div><button class="primary full">Place demo order</button></form>');
 }
 
 document.addEventListener('click', event => {
@@ -138,7 +152,7 @@ panel.addEventListener('click', event => {
     case 'checkout': checkout(); return;
     case 'sample': {
       const fields = panel.querySelector('#checkout-form').elements;
-      const sample = {first:'Jamie',last:'Lee',email:'jamie@example.com',address:'123 Sample Street',city:'Vancouver',postal:'V6B 1A1'};
+      const sample = {first:'Jamie',last:'Lee',email:'jamie@example.com',address:'123 Sample Street',city:'Vancouver',postal:'V6B 1A1',province:'British Columbia'};
       Object.entries(sample).forEach(([name, value]) => { fields[name].value = value; });
       return;
     }
@@ -151,6 +165,12 @@ panel.addEventListener('click', event => {
       updateBag();
       bag(action, index);
     }
+  }
+});
+
+panel.addEventListener('change', event => {
+  if (event.target.name === 'delivery') {
+    panel.querySelector('#checkout-totals').innerHTML = summary(event.target.value);
   }
 });
 
@@ -175,13 +195,16 @@ panel.addEventListener('submit', event => {
   }
   if (form.id === 'checkout-form' && cart.length) {
     const orderId = 'RR-' + Math.random().toString(36).slice(2, 8).toUpperCase();
-    const total = totals().total;
+    const delivery = form.elements.delivery.value;
+    const receipt = orderItems() + summary(delivery);
     cart = [];
     updateBag();
-    openPanel('Order confirmed', '<p>Your demo order <strong>' + orderId + '</strong> is complete.</p><p>Order total <strong>' +
-      money(total) + ' CAD</strong></p><p class="note">No payment was collected. Your checkout details were not saved.</p><button class="primary full" data-action="close">Continue shopping</button>');
+    openPanel('Order confirmed', '<p>Your demo order <strong>' + orderId + '</strong> is complete.</p><p>' +
+      (delivery === 'express' ? 'Express delivery' : 'Standard delivery') + '</p>' + receipt +
+      '<p class="note">No payment was collected. Your checkout details were not saved.</p><button class="primary full" data-action="close">Continue shopping</button>');
   }
 });
 
 updateBag();
 renderProducts();
+
