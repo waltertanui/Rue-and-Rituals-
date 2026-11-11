@@ -208,3 +208,5 @@ panel.addEventListener('submit', event => {
 updateBag();
 renderProducts();
 
+const linkedProduct = find(new URLSearchParams(window.location.search).get('product'));
+if (linkedProduct) detail(linkedProduct);
