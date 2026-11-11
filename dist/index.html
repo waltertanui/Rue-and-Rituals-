@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Shop everyday clothing and beauty at Rue & Ritual."><title>Rue & Ritual | Clothing & Beauty</title><link rel="stylesheet" href="style.css"><script src="shop.js" defer></script></head>
+<body>
+<div class="announcement">Complimentary shipping on orders over $100</div>
+<header class="top"><a href="#" class="wordmark" aria-label="Rue and Ritual home">rue<span>&</span>ritual<span>.</span></a><nav aria-label="Collections"><a href="#shop" data-filter="All">Shop all</a><a href="#shop" data-filter="Clothing">Clothing</a><a href="#shop" data-filter="Beauty">Beauty</a></nav><button class="bag" id="open-bag">Bag <span id="bag-count">0</span></button></header>
+<main>
+<section class="hero"><div class="hero-copy"><p class="eyebrow">THE EVERYDAY EDIT</p><h1>Good things<br>to <em>live in.</em></h1><p>Easy layers and beauty staples for the way you get dressed and get ready.</p><a class="primary" href="#shop" data-filter="All">Shop the edit <span aria-hidden="true">↗</span></a></div><div class="hero-image" role="img" aria-label="Fashion shoppers browsing a clothing rack"></div></section>
+<section class="shop" id="shop"><div class="section-head"><div><p class="eyebrow">CLOTHING & BEAUTY</p><h2>Shop the collection</h2></div><div class="tabs" aria-label="Filter products"><button data-filter="All" aria-pressed="true">All</button><button data-filter="Clothing" aria-pressed="false">Clothing</button><button data-filter="Beauty" aria-pressed="false">Beauty</button></div></div>
+<div class="tools"><label>Search products<input type="search" id="search" placeholder="Try denim or serum"></label><label>Sort by<select id="sort"><option value="featured">Featured</option><option value="asc">Price: low to high</option><option value="desc">Price: high to low</option></select></label></div>
+<div class="grid" id="products"></div></section>
+</main>
+<footer><a href="#" class="wordmark">rue<span>&</span>ritual<span>.</span></a><p>Clothing & beauty · CAD</p><a href="#shop" data-filter="All">Shop all ↑</a></footer>
+<dialog id="modal"><div id="panel"></div></dialog><div id="toast" role="status"></div>
+</body></html>
