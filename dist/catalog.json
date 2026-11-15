@@ -1,0 +1,80 @@
+[
+  {
+    "id": "blazer",
+    "name": "The Everyday Blazer",
+    "category": "Clothing",
+    "price": 89,
+    "options": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "A relaxed layer with room for a tee or a light knit.",
+    "photo": "photo-1594633312681-425c7b97ccd1"
+  },
+  {
+    "id": "serum",
+    "name": "Daily Glow Serum",
+    "category": "Beauty",
+    "price": 36,
+    "options": [
+      "30 mL"
+    ],
+    "description": "A lightweight serum for the step before moisturizer.",
+    "photo": "photo-1608248543803-ba4f8c70ae0b"
+  },
+  {
+    "id": "denim",
+    "name": "Straight Leg Denim",
+    "category": "Clothing",
+    "price": 74,
+    "options": [
+      "24",
+      "26",
+      "28",
+      "30",
+      "32"
+    ],
+    "description": "An easy straight-leg jean with a classic five-pocket cut.",
+    "photo": "photo-1541099649105-f69ad21f3246"
+  },
+  {
+    "id": "cream",
+    "name": "Soft Reset Moisturizer",
+    "category": "Beauty",
+    "price": 32,
+    "options": [
+      "50 mL"
+    ],
+    "description": "A smooth face cream for your morning or evening routine.",
+    "photo": "photo-1556229010-6c3f2c9ca5f8"
+  },
+  {
+    "id": "shirt",
+    "name": "The Cotton Tee",
+    "category": "Clothing",
+    "price": 28,
+    "options": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "A soft everyday tee with a simple crew neckline.",
+    "photo": "photo-1554568218-0f1715e72254"
+  },
+  {
+    "id": "lip",
+    "name": "Sheer Lip Colour",
+    "category": "Beauty",
+    "price": 22,
+    "options": [
+      "Rose"
+    ],
+    "description": "A buildable wash of rose colour for everyday wear.",
+    "photo": "photo-1586495777744-4413f21062fa"
+  }
+]

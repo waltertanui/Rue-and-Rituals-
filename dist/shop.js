@@ -1,20 +1,7 @@
-
-const photos = {
-  blazer: 'photo-1594633312681-425c7b97ccd1',
-  shirt: 'photo-1554568218-0f1715e72254',
-  denim: 'photo-1541099649105-f69ad21f3246',
-  serum: 'photo-1608248543803-ba4f8c70ae0b',
-  cream: 'photo-1556229010-6c3f2c9ca5f8',
-  lip: 'photo-1586495777744-4413f21062fa'
-};
-const catalog = [
-  ['blazer', 'The Everyday Blazer', 'Clothing', 89, ['XS', 'S', 'M', 'L', 'XL'], 'A relaxed layer with room for a tee or a light knit.'],
-  ['serum', 'Daily Glow Serum', 'Beauty', 36, ['30 mL'], 'A lightweight serum for the step before moisturizer.'],
-  ['denim', 'Straight Leg Denim', 'Clothing', 74, ['24', '26', '28', '30', '32'], 'An easy straight-leg jean with a classic five-pocket cut.'],
-  ['cream', 'Soft Reset Moisturizer', 'Beauty', 32, ['50 mL'], 'A smooth face cream for your morning or evening routine.'],
-  ['shirt', 'The Cotton Tee', 'Clothing', 28, ['XS', 'S', 'M', 'L', 'XL'], 'A soft everyday tee with a simple crew neckline.'],
-  ['lip', 'Sheer Lip Colour', 'Beauty', 22, ['Rose'], 'A buildable wash of rose colour for everyday wear.']
-].map(([id, name, category, price, options, description]) => ({id, name, category, price: price * 100, options, description}));
+async function startShop() {
+const response = await fetch('./catalog.json');
+if (!response.ok) throw new Error('Catalog unavailable');
+const catalog = (await response.json()).map(product => ({...product, price: Math.round(product.price * 100)}));
 
 const key = 'rue-ritual-bag-v1';
 const find = id => catalog.find(product => product.id === id);
@@ -36,7 +23,7 @@ const count = document.querySelector('#bag-count');
 const toast = document.querySelector('#toast');
 const currency = new Intl.NumberFormat('en-CA', {style:'currency', currency:'CAD'});
 const money = cents => currency.format(cents / 100);
-const photo = id => 'https://images.unsplash.com/' + photos[id] + '?auto=format&fit=crop&w=850&q=82';
+const photo = id => 'https://images.unsplash.com/' + find(id).photo + '?auto=format&fit=crop&w=850&q=82';
 let category = 'All';
 let toastTimer;
 
@@ -210,3 +197,8 @@ renderProducts();
 
 const linkedProduct = find(new URLSearchParams(window.location.search).get('product'));
 if (linkedProduct) detail(linkedProduct);
+}
+
+startShop().catch(() => {
+  document.querySelector('#products').textContent = 'The catalog could not load. Refresh to try again.';
+});
