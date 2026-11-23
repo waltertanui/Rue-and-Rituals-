@@ -12,7 +12,28 @@
       "XL"
     ],
     "description": "A relaxed layer with room for a tee or a light knit.",
-    "photo": "photo-1594633312681-425c7b97ccd1"
+    "photo": "photo-1594633312681-425c7b97ccd1",
+    "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=850&q=82",
+    "markets": {
+      "ca": {
+        "currency": "CAD",
+        "price": 89,
+        "productUrl": "https://rueandrituals.vercel.app/?market=ca&product=blazer",
+        "displayPrice": "$89.00"
+      },
+      "uk": {
+        "currency": "GBP",
+        "price": 52,
+        "productUrl": "https://rueandrituals.vercel.app/?market=uk&product=blazer",
+        "displayPrice": "£52.00"
+      },
+      "de": {
+        "currency": "EUR",
+        "price": 62,
+        "productUrl": "https://rueandrituals.vercel.app/?market=de&product=blazer",
+        "displayPrice": "62,00 €"
+      }
+    }
   },
   {
     "id": "serum",
@@ -23,7 +44,28 @@
       "30 mL"
     ],
     "description": "A lightweight serum for the step before moisturizer.",
-    "photo": "photo-1608248543803-ba4f8c70ae0b"
+    "photo": "photo-1608248543803-ba4f8c70ae0b",
+    "imageUrl": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=850&q=82",
+    "markets": {
+      "ca": {
+        "currency": "CAD",
+        "price": 36,
+        "productUrl": "https://rueandrituals.vercel.app/?market=ca&product=serum",
+        "displayPrice": "$36.00"
+      },
+      "uk": {
+        "currency": "GBP",
+        "price": 22,
+        "productUrl": "https://rueandrituals.vercel.app/?market=uk&product=serum",
+        "displayPrice": "£22.00"
+      },
+      "de": {
+        "currency": "EUR",
+        "price": 25,
+        "productUrl": "https://rueandrituals.vercel.app/?market=de&product=serum",
+        "displayPrice": "25,00 €"
+      }
+    }
   },
   {
     "id": "denim",
@@ -38,7 +80,28 @@
       "32"
     ],
     "description": "An easy straight-leg jean with a classic five-pocket cut.",
-    "photo": "photo-1541099649105-f69ad21f3246"
+    "photo": "photo-1541099649105-f69ad21f3246",
+    "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=850&q=82",
+    "markets": {
+      "ca": {
+        "currency": "CAD",
+        "price": 74,
+        "productUrl": "https://rueandrituals.vercel.app/?market=ca&product=denim",
+        "displayPrice": "$74.00"
+      },
+      "uk": {
+        "currency": "GBP",
+        "price": 44,
+        "productUrl": "https://rueandrituals.vercel.app/?market=uk&product=denim",
+        "displayPrice": "£44.00"
+      },
+      "de": {
+        "currency": "EUR",
+        "price": 52,
+        "productUrl": "https://rueandrituals.vercel.app/?market=de&product=denim",
+        "displayPrice": "52,00 €"
+      }
+    }
   },
   {
     "id": "cream",
@@ -49,7 +112,28 @@
       "50 mL"
     ],
     "description": "A smooth face cream for your morning or evening routine.",
-    "photo": "photo-1556229010-6c3f2c9ca5f8"
+    "photo": "photo-1556229010-6c3f2c9ca5f8",
+    "imageUrl": "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=850&q=82",
+    "markets": {
+      "ca": {
+        "currency": "CAD",
+        "price": 32,
+        "productUrl": "https://rueandrituals.vercel.app/?market=ca&product=cream",
+        "displayPrice": "$32.00"
+      },
+      "uk": {
+        "currency": "GBP",
+        "price": 19,
+        "productUrl": "https://rueandrituals.vercel.app/?market=uk&product=cream",
+        "displayPrice": "£19.00"
+      },
+      "de": {
+        "currency": "EUR",
+        "price": 23,
+        "productUrl": "https://rueandrituals.vercel.app/?market=de&product=cream",
+        "displayPrice": "23,00 €"
+      }
+    }
   },
   {
     "id": "shirt",
@@ -64,17 +148,59 @@
       "XL"
     ],
     "description": "A soft everyday tee with a simple crew neckline.",
-    "photo": "photo-1554568218-0f1715e72254"
+    "photo": "photo-1554568218-0f1715e72254",
+    "imageUrl": "https://images.unsplash.com/photo-1554568218-0f1715e72254?auto=format&fit=crop&w=850&q=82",
+    "markets": {
+      "ca": {
+        "currency": "CAD",
+        "price": 28,
+        "productUrl": "https://rueandrituals.vercel.app/?market=ca&product=shirt",
+        "displayPrice": "$28.00"
+      },
+      "uk": {
+        "currency": "GBP",
+        "price": 17,
+        "productUrl": "https://rueandrituals.vercel.app/?market=uk&product=shirt",
+        "displayPrice": "£17.00"
+      },
+      "de": {
+        "currency": "EUR",
+        "price": 20,
+        "productUrl": "https://rueandrituals.vercel.app/?market=de&product=shirt",
+        "displayPrice": "20,00 €"
+      }
+    }
   },
   {
     "id": "lip",
-    "name": "Sheer Lip Colour",
+    "name": "Rose Veil Lip Colour",
     "category": "Beauty",
     "price": 22,
     "options": [
       "Rose"
     ],
     "description": "A buildable wash of rose colour for everyday wear.",
-    "photo": "photo-1586495777744-4413f21062fa"
+    "photo": "images/rose-veil-lip-colour.png",
+    "imageUrl": "https://rueandrituals.vercel.app/images/rose-veil-lip-colour.png",
+    "markets": {
+      "ca": {
+        "currency": "CAD",
+        "price": 22,
+        "productUrl": "https://rueandrituals.vercel.app/?market=ca&product=lip",
+        "displayPrice": "$22.00"
+      },
+      "uk": {
+        "currency": "GBP",
+        "price": 14,
+        "productUrl": "https://rueandrituals.vercel.app/?market=uk&product=lip",
+        "displayPrice": "£14.00"
+      },
+      "de": {
+        "currency": "EUR",
+        "price": 16,
+        "productUrl": "https://rueandrituals.vercel.app/?market=de&product=lip",
+        "displayPrice": "16,00 €"
+      }
+    }
   }
 ]
